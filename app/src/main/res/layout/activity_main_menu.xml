@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ce7f10"
+    tools:context="com.montagut.alber.androidgame.MainMenu">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:autoText="false"
+        android:text="Welcome"
+        android:textColor="#000000"
+        android:textSize="40sp"
+        tools:text="Welcome" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_above="@+id/linearLayout"
+        android:layout_alignLeft="@+id/linearLayout"
+        android:layout_alignStart="@+id/linearLayout">
+
+        <Button
+            android:id="@+id/play"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_alignParentTop="true"
+            android:layout_margin="5px"
+            android:layout_marginBottom="5px"
+            android:layout_marginEnd="5px"
+            android:layout_marginLeft="5px"
+            android:layout_marginRight="5px"
+            android:layout_marginStart="5px"
+            android:layout_marginTop="5px"
+            android:layout_toEndOf="@+id/textView"
+            android:layout_toRightOf="@+id/textView"
+            android:layout_weight="1"
+            android:background="#000000"
+            android:text="Play"
+            android:textColor="#ffffff"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/ranking"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_margin="5px"
+            android:layout_marginBottom="5px"
+            android:layout_marginEnd="5px"
+            android:layout_marginLeft="5px"
+            android:layout_marginRight="5px"
+            android:layout_marginStart="5px"
+            android:layout_marginTop="5px"
+            android:layout_weight="1"
+            android:background="#000000"
+            android:elevation="0dp"
+            android:text="Ranking"
+            android:textColor="#ffffff"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="34dp"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:id="@+id/settings"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_margin="5px"
+            android:layout_marginBottom="5px"
+            android:layout_marginEnd="5px"
+            android:layout_marginLeft="5px"
+            android:layout_marginRight="5px"
+            android:layout_marginStart="5px"
+            android:layout_marginTop="5px"
+            android:layout_weight="1"
+            android:background="#000000"
+            android:text="settings"
+            android:textColor="#ffffff"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/surprise"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_margin="5px"
+            android:layout_marginBottom="5px"
+            android:layout_marginEnd="5px"
+            android:layout_marginLeft="5px"
+            android:layout_marginRight="5px"
+            android:layout_marginStart="5px"
+            android:layout_marginTop="5px"
+            android:layout_weight="1"
+            android:background="#000000"
+            android:text="Surprise"
+            android:textColor="#ffffff"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>
