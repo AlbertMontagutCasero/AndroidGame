@@ -3,6 +3,9 @@ package com.montagut.alber.androidgame;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.google.gson.Gson;
+import com.montagut.alber.androidgame.model.GameTO;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -29,7 +32,9 @@ class GamesTask extends AsyncTask<Void , Void, Void> {
             while ((line = reader.readLine()) != null) json += line;
             is.close();
 
-            Log.d("Raikish ", "doInBackground: " + json);
+            Gson gson = new Gson();
+            GameTO gt = gson.fromJson(json, GameTO.class);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
