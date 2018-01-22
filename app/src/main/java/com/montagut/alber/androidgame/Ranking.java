@@ -18,14 +18,15 @@ public class Ranking extends AppCompatActivity {
         setContentView(R.layout.activity_ranking);
         srlGame = findViewById(R.id.srlGame);
         rvGame = findViewById(R.id.rvGame);
+        updateGames();
 
-       /* srlGame.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        srlGame.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 updateGames();
             }
         });
-*/
+
     }
 
     public void updateGames(){

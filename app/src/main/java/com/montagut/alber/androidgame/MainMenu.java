@@ -24,7 +24,7 @@ public class MainMenu extends AppCompatActivity {
         ranking = (Button) findViewById(R.id.ranking);
         surprise = (Button) findViewById(R.id.surprise);
         settings = (Button) findViewById(R.id.settings);
-/*
+
 
         settings.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -55,7 +55,7 @@ public class MainMenu extends AppCompatActivity {
             }
         });
 
-        */
+
     }
 
 }
