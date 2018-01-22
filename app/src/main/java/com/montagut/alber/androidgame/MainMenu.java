@@ -24,7 +24,7 @@ public class MainMenu extends AppCompatActivity {
         ranking = (Button) findViewById(R.id.ranking);
         surprise = (Button) findViewById(R.id.surprise);
         settings = (Button) findViewById(R.id.settings);
-
+/*
 
         settings.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -33,11 +33,13 @@ public class MainMenu extends AppCompatActivity {
             }
         });
 
+
         ranking.setOnClickListener(new View.OnClickListener(){
             @Override public void onClick(View view){
                 startActivity(new Intent(MainMenu.this,Ranking.class));
             }
         });
+
 
         surprise.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -52,6 +54,8 @@ public class MainMenu extends AppCompatActivity {
                 startActivity(new Intent(MainMenu.this,Play.class));
             }
         });
+
+        */
     }
 
 }
