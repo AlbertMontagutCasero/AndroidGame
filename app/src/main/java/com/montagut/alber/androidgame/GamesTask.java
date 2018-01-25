@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.montagut.alber.androidgame.model.DataGame;
 import com.montagut.alber.androidgame.model.GameTO;
 
 import java.io.BufferedReader;
@@ -14,10 +15,6 @@ import java.net.URL;
 import java.net.URLConnection;
 
 import static android.content.ContentValues.TAG;
-
-/**
- * Created by alber on 17/01/2018.
- */
 
 class GamesTask extends AsyncTask<Void , Void, Void> {
 
@@ -34,6 +31,10 @@ class GamesTask extends AsyncTask<Void , Void, Void> {
 
             Gson gson = new Gson();
             GameTO gt = gson.fromJson(json, GameTO.class);
+            for (DataGame game : gt.getData()){
+                Log.d("Raikish" , game.getName());
+
+            }
 
         } catch (IOException e) {
             e.printStackTrace();
