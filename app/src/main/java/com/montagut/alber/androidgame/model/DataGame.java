@@ -1,10 +1,5 @@
 package com.montagut.alber.androidgame.model;
-
 import com.google.gson.annotations.SerializedName;
-
-/**
- * Created by alber on 22/01/2018.
- */
 
 public class DataGame {
     private String id;

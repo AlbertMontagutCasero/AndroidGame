@@ -16,18 +16,18 @@ import java.net.URLConnection;
 
 import static android.content.ContentValues.TAG;
 
-class GamesTask extends AsyncTask<Void , Void, Void> {
+class GamesTask extends AsyncTask<Void , Void, GameTO> {
 
     @Override
-    protected Void doInBackground(Void... voids) {
+    protected GameTO doInBackground(Void... voids) {
         try {
             String url = "http://stucom.flx.cat/game/api/game";
             InputStream is =  (new URL(url)).openConnection().getInputStream();
             BufferedReader reader = new BufferedReader(new InputStreamReader(is));
             String json = "";
             String line;
-            while ((line = reader.readLine()) != null) json += line;
-            is.close();
+                while ((line = reader.readLine()) != null) json += line;
+                is.close();
 
             Gson gson = new Gson();
             GameTO gt = gson.fromJson(json, GameTO.class);
@@ -36,8 +36,12 @@ class GamesTask extends AsyncTask<Void , Void, Void> {
 
             }
 
+            return gt;
+
         } catch (IOException e) {
             e.printStackTrace();
+            System.out.println(e.getMessage());
+            return null;
         }
 
 
@@ -46,8 +50,10 @@ class GamesTask extends AsyncTask<Void , Void, Void> {
          *  GET game/<id> Retorna la informació d’un joc concret
          */
 
-        return null;
     }
 
-
+    @Override
+    protected void onPostExecute(GameTO gameTO) {
+        
+    }
 }
