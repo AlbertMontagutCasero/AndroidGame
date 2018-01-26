@@ -2,7 +2,7 @@ package com.montagut.alber.androidgame.model;
 
 import java.util.List;
 
-public class GameTO {
+public class GameResponse {
     private String error;
     private String message;
     private List<DataGame> data;

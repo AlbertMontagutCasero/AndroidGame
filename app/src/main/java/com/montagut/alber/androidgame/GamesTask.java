@@ -1,25 +1,20 @@
 package com.montagut.alber.androidgame;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
 import com.google.gson.Gson;
-import com.montagut.alber.androidgame.model.DataGame;
-import com.montagut.alber.androidgame.model.GameTO;
+import com.montagut.alber.androidgame.model.GameResponse;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.net.URLConnection;
 
-import static android.content.ContentValues.TAG;
-
-class GamesTask extends AsyncTask<Void , Void, GameTO> {
+class GamesTask extends AsyncTask<Void , Void, GameResponse> {
 
     @Override
-    protected GameTO doInBackground(Void... voids) {
+    protected GameResponse doInBackground(Void... voids) {
         try {
             String url = "http://stucom.flx.cat/game/api/game";
             InputStream is =  (new URL(url)).openConnection().getInputStream();
@@ -30,16 +25,9 @@ class GamesTask extends AsyncTask<Void , Void, GameTO> {
                 is.close();
 
             Gson gson = new Gson();
-            GameTO gt = gson.fromJson(json, GameTO.class);
-            for (DataGame game : gt.getData()){
-                Log.d("Raikish" , game.getName());
-
-            }
-
-            return gt;
+            return gson.fromJson(json, GameResponse.class);
 
         } catch (IOException e) {
-            e.printStackTrace();
             System.out.println(e.getMessage());
             return null;
         }
@@ -52,8 +40,21 @@ class GamesTask extends AsyncTask<Void , Void, GameTO> {
 
     }
 
-    @Override
-    protected void onPostExecute(GameTO gameTO) {
-        
+    private OnGameListener listener;
+    public void setOnGameListener(OnGameListener listener){
+        this.listener = listener;
     }
+
+    @Override
+    protected void onPostExecute(GameResponse gameResponse) {
+        if(listener != null){
+            listener.updated(gameResponse);
+        }
+    }
+
+    public interface OnGameListener {
+        void updated(GameResponse gameResponse);
+    }
+
+
 }
