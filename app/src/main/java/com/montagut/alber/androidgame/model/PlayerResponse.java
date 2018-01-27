@@ -1,40 +1,13 @@
 package com.montagut.alber.androidgame.model;
 
-import java.util.List;
-
 public class PlayerResponse {
 
-    private String error;
-    private List<DataPlayer> ranking;
-
-
-    public PlayerResponse(String error, List<DataPlayer> ranking) {
-        this.error = error;
-        this.ranking = ranking;
+    private DataGame data;
+    public DataGame getData() {
+        return data;
     }
-
-    public String getError() {
-        return error;
-    }
-
-    public void setError(String error) {
-        this.error = error;
-    }
-
-    public List<DataPlayer> getRanking() {
-        return ranking;
-    }
-
-    public void setRanking(List<DataPlayer> ranking) {
-        this.ranking = ranking;
-    }
-
-    public List<DataPlayer> getranking() {
-        return ranking;
-    }
-
-    public void setranking(List<DataPlayer> ranking) {
-        this.ranking = ranking;
+    public void setData(DataGame data) {
+        this.data = data;
     }
 }
 

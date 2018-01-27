@@ -14,9 +14,10 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.montagut.alber.androidgame.Task.PlayerTask;
 import com.montagut.alber.androidgame.model.DataGame;
-import com.montagut.alber.androidgame.model.DataPlayer;
 import com.montagut.alber.androidgame.model.GameResponse;
+import com.montagut.alber.androidgame.model.RankingUser;
 import com.montagut.alber.androidgame.model.PlayerResponse;
+import com.montagut.alber.androidgame.model.User;
 import com.squareup.picasso.Picasso;
 
 public class RankingPlayersForGameActivity extends AppCompatActivity
@@ -82,18 +83,11 @@ public class RankingPlayersForGameActivity extends AppCompatActivity
      * @param player
      */
     @Override
-    public void itemClicked(View view, DataPlayer player) {
-        Intent intent = new Intent(this, RankingPlayersForGameActivity.class);
+    public void itemClicked(View view, User player) {
+        Intent intent = new Intent(this, RankingPersonalUser.class);
         Gson gson = new Gson();
         String json = gson.toJson(player);
-        intent.putExtra("game", json);
-
-       /* the next code is another way to do the same
-        * intent.putExtra("id", game.getId());
-        * intent.putExtra("image", game.getAvatarImage());
-        * intent.putExtra("tittle", game.getName());
-        * intent.putExtra("description", game.getDescription());
-        */
+        intent.putExtra("user", json);
         startActivity(intent);
     }
 

@@ -1,17 +1,28 @@
 package com.montagut.alber.androidgame.model;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class DataGame {
     private String id;
     private String name;
     private String description;
     @SerializedName("image_path")
     private String avatarImage;
+    @SerializedName("ranking")
+    private List<RankingUser> rankingUsers;
+
+    public List<RankingUser> getRankingUsers() {
+        return rankingUsers;
+    }
+
+    public void setRankingUsers(List<RankingUser> rankingUsers) {
+        this.rankingUsers = rankingUsers;
+    }
 
     public String getId() {
         return id;
     }
-
     public void setId(String id) {
         this.id = id;
     }
