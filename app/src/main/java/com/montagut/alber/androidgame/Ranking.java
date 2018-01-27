@@ -1,5 +1,6 @@
 package com.montagut.alber.androidgame;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -14,8 +15,9 @@ import com.google.gson.Gson;
 import com.montagut.alber.androidgame.model.DataGame;
 import com.montagut.alber.androidgame.model.GameResponse;
 
-public class Ranking extends AppCompatActivity implements GameTask.OnGameListener, GameAdapter.OnItemClickListener{
-
+public class Ranking extends AppCompatActivity
+        implements GameTask.OnGameListener, GameAdapter.OnItemClickListener
+{
     private SwipeRefreshLayout srlGame;
     private RecyclerView rvGame;
 
@@ -45,14 +47,19 @@ public class Ranking extends AppCompatActivity implements GameTask.OnGameListene
 
     @Override
     public void updated(GameResponse gameResponse) {
-        srlGame.setRefreshing(false);
         GameAdapter adapter = new GameAdapter(gameResponse);
+        srlGame.setRefreshing(false);
         rvGame.setLayoutManager(new LinearLayoutManager(Ranking.this));
         rvGame.setItemAnimator(new DefaultItemAnimator());
         rvGame.setAdapter(adapter);
+        adapter.setOnItemClickListener(this);
     }
 
-
+    /**
+     * Called when item on the recycle view gets clicked
+     * @param view
+     * @param game
+     */
     @Override
     public void itemClicked(View view, DataGame game) {
         Intent intent = new Intent(this, RankingPlayersForGame.class);
@@ -63,4 +70,5 @@ public class Ranking extends AppCompatActivity implements GameTask.OnGameListene
         intent.putExtra("set", json);
         startActivity(intent);
     }
+
 }

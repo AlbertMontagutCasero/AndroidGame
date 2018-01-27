@@ -1,7 +1,7 @@
 package com.montagut.alber.androidgame;
 
+import android.content.Context;
 import android.os.AsyncTask;
-
 import com.google.gson.Gson;
 import com.montagut.alber.androidgame.model.GameResponse;
 
@@ -11,7 +11,17 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 
-class GameTask extends AsyncTask<Void , Void, GameResponse> {
+class GameTask extends AsyncTask<Void , Void, GameResponse>
+{
+
+    private OnGameListener listener;
+    public void setOnGameListener(OnGameListener listener){
+        this.listener = listener;
+    }
+    public interface OnGameListener {
+        void updated(GameResponse gameResponse);
+    }
+
 
     @Override
     protected GameResponse doInBackground(Void... voids) {
@@ -31,18 +41,6 @@ class GameTask extends AsyncTask<Void , Void, GameResponse> {
             System.out.println(e.getMessage());
             return null;
         }
-
-
-        /**
-         *  GET game Retorna una llista de jocs
-         *  GET game/<id> Retorna la informació d’un joc concret
-         */
-
-    }
-
-    private OnGameListener listener;
-    public void setOnGameListener(OnGameListener listener){
-        this.listener = listener;
     }
 
     @Override
@@ -52,9 +50,6 @@ class GameTask extends AsyncTask<Void , Void, GameResponse> {
         }
     }
 
-    public interface OnGameListener {
-        void updated(GameResponse gameResponse);
-    }
 
 
 }

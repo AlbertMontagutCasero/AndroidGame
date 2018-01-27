@@ -27,6 +27,7 @@
         <activity android:name=".Surprise" />
         <activity android:name=".Ranking" />
         <activity android:name=".Play" />
+        <activity android:name=".RankingPlayersForGame" />
     </application>
 
 </manifest>
