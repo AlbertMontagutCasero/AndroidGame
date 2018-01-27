@@ -23,11 +23,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Settings" />
-        <activity android:name=".Surprise" />
-        <activity android:name=".Ranking" />
-        <activity android:name=".Play" />
-        <activity android:name=".RankingPlayersForGame" />
+        <activity android:name=".SettingsActivity" />
+        <activity android:name=".SurpriseActivity" />
+        <activity android:name=".RankingActivity" />
+        <activity android:name=".PlayActivity" />
+        <activity android:name=".RankingPlayersForGameActivity" />
     </application>
 
 </manifest>

@@ -1,16 +1,13 @@
 package com.montagut.alber.androidgame;
 
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 
-public class RankingPlayersForGame extends AppCompatActivity {
+public class SurpriseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.activity_ranking_players_game);
-
+        setContentView(R.layout.activity_surprise);
     }
-
 }

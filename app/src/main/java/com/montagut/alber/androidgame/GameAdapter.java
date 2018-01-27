@@ -1,9 +1,6 @@
 package com.montagut.alber.androidgame;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
-import android.provider.ContactsContract;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +13,6 @@ import com.montagut.alber.androidgame.model.DataGame;
 import com.montagut.alber.androidgame.model.GameResponse;
 import com.squareup.picasso.Picasso;
 
-import static android.support.v4.content.ContextCompat.startActivity;
 
 public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ViewHolder>{
 

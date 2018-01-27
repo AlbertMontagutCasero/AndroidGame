@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.montagut.alber.androidgame.Settings">
+    tools:context="com.montagut.alber.androidgame.SettingsActivity">
 
     <TextView
         android:id="@+id/nameText"

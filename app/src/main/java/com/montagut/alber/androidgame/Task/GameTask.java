@@ -1,6 +1,5 @@
-package com.montagut.alber.androidgame;
+package com.montagut.alber.androidgame.Task;
 
-import android.content.Context;
 import android.os.AsyncTask;
 import com.google.gson.Gson;
 import com.montagut.alber.androidgame.model.GameResponse;
@@ -11,7 +10,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 
-class GameTask extends AsyncTask<Void , Void, GameResponse>
+public class GameTask extends AsyncTask<Void , Void, GameResponse>
 {
 
     private OnGameListener listener;
@@ -22,10 +21,10 @@ class GameTask extends AsyncTask<Void , Void, GameResponse>
         void updated(GameResponse gameResponse);
     }
 
-
     @Override
     protected GameResponse doInBackground(Void... voids) {
-        try {
+        try
+        {
             String url = "http://stucom.flx.cat/game/api/game";
             InputStream is =  (new URL(url)).openConnection().getInputStream();
             BufferedReader reader = new BufferedReader(new InputStreamReader(is));
@@ -33,12 +32,10 @@ class GameTask extends AsyncTask<Void , Void, GameResponse>
             String line;
                 while ((line = reader.readLine()) != null) json += line;
                 is.close();
-
             Gson gson = new Gson();
             return gson.fromJson(json, GameResponse.class);
 
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
+        } catch (IOException e){
             return null;
         }
     }
@@ -49,7 +46,4 @@ class GameTask extends AsyncTask<Void , Void, GameResponse>
             listener.updated(gameResponse);
         }
     }
-
-
-
 }

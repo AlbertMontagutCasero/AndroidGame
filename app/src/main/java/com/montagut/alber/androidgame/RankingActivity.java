@@ -1,6 +1,5 @@
 package com.montagut.alber.androidgame;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -8,14 +7,14 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 
 import com.google.gson.Gson;
+import com.montagut.alber.androidgame.Task.GameTask;
 import com.montagut.alber.androidgame.model.DataGame;
 import com.montagut.alber.androidgame.model.GameResponse;
 
-public class Ranking extends AppCompatActivity
+public class RankingActivity extends AppCompatActivity
         implements GameTask.OnGameListener, GameAdapter.OnItemClickListener
 {
     private SwipeRefreshLayout srlGame;
@@ -35,7 +34,6 @@ public class Ranking extends AppCompatActivity
                 updateGames();
             }
         });
-
     }
 
     public void updateGames(){
@@ -49,7 +47,7 @@ public class Ranking extends AppCompatActivity
     public void updated(GameResponse gameResponse) {
         GameAdapter adapter = new GameAdapter(gameResponse);
         srlGame.setRefreshing(false);
-        rvGame.setLayoutManager(new LinearLayoutManager(Ranking.this));
+        rvGame.setLayoutManager(new LinearLayoutManager(RankingActivity.this));
         rvGame.setItemAnimator(new DefaultItemAnimator());
         rvGame.setAdapter(adapter);
         adapter.setOnItemClickListener(this);
@@ -62,12 +60,17 @@ public class Ranking extends AppCompatActivity
      */
     @Override
     public void itemClicked(View view, DataGame game) {
-        Intent intent = new Intent(this, RankingPlayersForGame.class);
-
+        Intent intent = new Intent(this, RankingPlayersForGameActivity.class);
         Gson gson = new Gson();
         String json = gson.toJson(game);
-        Log.d("flx", "JSON = " + json);
-        intent.putExtra("set", json);
+        intent.putExtra("game", json);
+
+       /* the next code is another way to do the same
+        * intent.putExtra("id", game.getId());
+        * intent.putExtra("image", game.getAvatarImage());
+        * intent.putExtra("tittle", game.getName());
+        * intent.putExtra("description", game.getDescription());
+        */
         startActivity(intent);
     }
 

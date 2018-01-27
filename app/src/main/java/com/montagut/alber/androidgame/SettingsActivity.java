@@ -18,7 +18,7 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 
-public class Settings extends AppCompatActivity {
+public class SettingsActivity extends AppCompatActivity {
 
     EditText userName;
     ImageView userImage;
