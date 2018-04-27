@@ -26,9 +26,12 @@
         <activity android:name=".SettingsActivity" />
         <activity android:name=".SurpriseActivity" />
         <activity android:name=".RankingActivity" />
-        <activity android:name=".PlayActivity" />
         <activity android:name=".RankingPlayersForGameActivity" />
         <activity android:name=".RankingPersonalUser" />
+        <activity android:name=".PlayActivity"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboardHidden|orientation|screenSize">
+        </activity>
     </application>
 
 </manifest>
